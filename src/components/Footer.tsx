@@ -7,17 +7,20 @@ export default function Footer() {
         © 2025 Uzziel Valdez. All rights reserved.
       </div>
       <div className="flex space-x-4">
-        <Link href="https://instagram.com/tuusuario" target="_blank" aria-label="Instagram" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
-          Instagram
+        <Link href="https://github.com/uzzielvz" target="_blank" aria-label="gitHub" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
+          github
         </Link>
-        <Link href="https://twitter.com/tuusuario" target="_blank" aria-label="Twitter" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
-          Twitter
+        <Link href="https://linkedin.com/in/uzzielvz" target="_blank" aria-label="linkedIn" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
+          linkedIn
         </Link>
-        <Link href="https://linkedin.com/in/tuusuario" target="_blank" aria-label="LinkedIn" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
-          LinkedIn
+        <Link href="https://x.com/uzzielvz" target="_blank" aria-label="X" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
+          X
         </Link>
-        <Link href="https://github.com/tuusuario" target="_blank" aria-label="GitHub" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
-          GitHub
+        <Link href="https://www.goodreads.com/user/show/172204382-uzziel-valdez" target="_blank" aria-label="goodreads" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
+          goodreads
+        </Link>
+        <Link href="https://www.instagram.com/uzzielvz/" target="_blank" aria-label="instagram" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
+          instagram
         </Link>
       </div>
     </footer>

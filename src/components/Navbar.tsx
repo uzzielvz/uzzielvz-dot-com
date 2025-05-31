@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <nav className="w-full fixed top-0 left-0 bg-white z-50 border-b border-gray-100">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-        <Link href="/" className="font-bold text-xl tracking-tight text-black">uzzielvdz.com/</Link>
+        <Link href="/" className="font-bold text-xl tracking-tight text-black">uzzielvz.com/</Link>
         <div className="hidden md:flex space-x-8">
           <Link href="/works" className={`text-gray-500 hover:text-gray-800 ${pathname === '/works' ? 'font-bold' : ''}`}>works</Link>
           <Link href="/experience" className={`text-gray-500 hover:text-gray-800 ${pathname === '/experience' ? 'font-bold' : ''}`}>experience</Link>

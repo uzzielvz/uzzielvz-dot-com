@@ -5,9 +5,12 @@ export default function SkillsPage() {
   return (
     <main className="min-h-screen bg-white flex flex-col">
       <Navbar />
-      <section className="w-full py-20 mt-0 min-h-screen flex flex-col">
-        <div className="max-w-6xl mx-auto px-4 flex-1 flex flex-col">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-left">Skills & Technologies</h1>
+      <section className="w-full py-8 mt-16 min-h-screen">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col flex-1">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-left">Skills & Technologies</h1>
+          <p className="text-gray-700 text-lg mb-8 text-justify">
+            Aquí puedes encontrar un resumen de las principales tecnologías y habilidades que he adquirido y utilizado en mi trayectoria como desarrollador. Esta lista abarca desde lenguajes de programación y frameworks hasta herramientas de desarrollo y habilidades interpersonales clave para el trabajo en equipo y la resolución de problemas.
+          </p>
           <div className="flex-1 flex items-center justify-center">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[

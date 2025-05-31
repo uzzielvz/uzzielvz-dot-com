@@ -31,7 +31,7 @@ export default async function Home() {
           <div className="flex justify-between items-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900">Experience</h2>
             <Link href="/experience" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Ver toda la experiencia →
+              view all experience →
             </Link>
           </div>
           <div className="space-y-8">

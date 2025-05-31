@@ -10,7 +10,7 @@ export default function PostCard({ post }: { post: any }) {
       <div className="text-xs text-gray-600 mb-2">
         {formattedDate} &nbsp; | &nbsp; {post.tags?.join(", ")}
       </div>
-      <p className="text-gray-700 text-sm line-clamp-3 flex-1">{post.excerpt}</p>
+      <p className="text-gray-700 text-sm line-clamp-3 flex-1 leading-relaxed text-justify">{post.excerpt}</p>
     </div>
   );
 } 

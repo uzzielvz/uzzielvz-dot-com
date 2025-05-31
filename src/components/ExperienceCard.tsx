@@ -19,7 +19,7 @@ export default function ExperienceCard({ experience }: { experience: any }) {
         </div>
         <h3 className="font-bold text-lg text-gray-900 mb-1">{experience.position}</h3>
         <p className="text-gray-600 text-sm mb-2">{experience.company}</p>
-        <p className="text-gray-700 text-sm line-clamp-2 mb-2">{experience.description}</p>
+        <p className="text-gray-700 text-sm line-clamp-2 mb-2 leading-relaxed text-justify">{experience.description}</p>
         {experience.technologies && experience.technologies.length > 0 && (
           <div className="flex flex-wrap gap-1 mt-auto">
             {experience.technologies.map((tech: string) => (

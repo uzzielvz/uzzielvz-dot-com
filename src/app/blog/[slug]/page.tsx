@@ -47,7 +47,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
           <div className="text-sm text-gray-600 mb-6">
             {post.date} &nbsp; | &nbsp; {post.tags?.join(", ")}
           </div>
-          <div className="prose lg:prose-xl max-w-none">
+          <div className="text-gray-900 text-justify leading-relaxed">
             <Markdown>{post.content}</Markdown>
           </div>
         </div>
