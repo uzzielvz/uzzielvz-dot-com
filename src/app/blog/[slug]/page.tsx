@@ -1,58 +1,36 @@
+import { getPostData } from '@/lib/posts';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import Markdown from 'markdown-to-jsx';
+import { notFound } from 'next/navigation';
 
-// Función para obtener los datos de un post específico
-async function getPostData(slug: string) {
-  const postsDirectory = path.join(process.cwd(), 'posts');
-  const filePath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = matter(fileContents);
+export default async function PostDetail({ params }: { params: { slug: string } }) {
+  const postData = await getPostData(params.slug);
 
-  return {
-    slug,
-    title: data.title,
-    date: data.date instanceof Date ? data.date.toDateString() : data.date, // Asegurar formato de fecha
-    tags: data.tags,
-    content,
-  };
-}
-
-// Función para generar los paths estáticos (pre-renderizar páginas)
-export async function generateStaticParams() {
-  const postsDirectory = path.join(process.cwd(), 'posts');
-   // Verificar si la carpeta posts existe antes de leer su contenido
-  if (!fs.existsSync(postsDirectory)) {
-    return []; // Retornar un array vacío si la carpeta no existe
+  if (!postData) {
+    notFound();
   }
-  const filenames = fs.readdirSync(postsDirectory);
-
-  return filenames.map((filename) => ({
-    slug: filename.replace(/\.md$/, ''),
-  }));
-}
-
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const post = await getPostData(params.slug);
 
   return (
     <main className="min-h-screen bg-white flex flex-col">
       <Navbar />
       <section className="w-full py-8 mt-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{post.title}</h1>
-          <div className="text-sm text-gray-600 mb-6">
-            {post.date} &nbsp; | &nbsp; {post.tags?.join(", ")}
+        <div className="max-w-4xl mx-auto px-4">
+          <h1 className="text-4xl font-bold mb-4">{postData.title}</h1>
+          <p className="text-gray-600 text-xl mb-4">{postData.date} | {postData.category}</p>
+          {postData.image && (
+            <img src={postData.image} alt={postData.title} className="mb-6 rounded-lg" />
+          )}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {postData.tags?.map((tag, index) => (
+              <span key={index} className="bg-gray-200 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                {tag}
+              </span>
+            ))}
           </div>
-          <div className="text-gray-900 text-justify leading-relaxed">
-            <Markdown>{post.content}</Markdown>
-          </div>
+          {/* Renderizar el contenido HTML del Markdown con estilos prose */}
+          <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: postData.content }} />
         </div>
       </section>
-      <Footer />
     </main>
   );
 } 

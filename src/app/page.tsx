@@ -4,15 +4,17 @@ import Link from "next/link";
 import { experiences } from "@/data/experience";
 import ExperienceCard from "@/components/ExperienceCard";
 import Hero from "@/components/Hero";
-import { works } from "../../data/works";
+import { getSortedWorksData } from '@/lib/works';
 import { getRecentPosts } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
 
-export default function Home() {
-  const posts = getRecentPosts(2);
+export default async function Home() {
+  const allWorks = await getSortedWorksData();
+  const featuredWorks = allWorks.filter(work => work.featured);
+  const posts = await getRecentPosts(2);
 
   return (
-    <main className="min-h-screen bg-white flex flex-col">
+    <main className="min-h-screen bg-white flex flex-col flex-grow">
       <Navbar />
       
       {/* Hero Section */}
@@ -49,10 +51,10 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {works.map((work, index) => (
+            {featuredWorks.map((work) => (
               <Link 
-                href={`/works/${index}`} 
-                key={index}
+                href={`/works/${work.slug}`} 
+                key={work.slug}
                 className="group block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
               >
                 <div className="p-6">
@@ -66,7 +68,7 @@ export default function Home() {
                     <span className="text-xs text-gray-600">{work.category}</span>
                   </div>
                   <p className="text-gray-700 text-sm mb-4 line-clamp-3">
-                    {work.description}
+                    {work.content}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {work.technologies.map((tech, techIndex) => (
@@ -109,8 +111,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

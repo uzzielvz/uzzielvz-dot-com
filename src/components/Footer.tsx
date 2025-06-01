@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full py-6 flex justify-between items-center border-t border-gray-100 mt-8 px-6">
+    <footer className="w-full py-6 flex justify-between items-center border-t border-gray-100 mt-8 px-6 bg-white">
       <div className="text-gray-500 text-sm">
         © 2025 Uzziel Valdez. All rights reserved.
       </div>
