@@ -15,6 +15,7 @@ export interface Post {
   image?: string;
   tags: string[];
   content: string;
+  author?: string;
 }
 
 export async function getAllPosts(): Promise<Post[]> {
@@ -43,6 +44,7 @@ export async function getAllPosts(): Promise<Post[]> {
         image: data.image,
         tags: data.tags || [],
         content: contentHtml,
+        author: data.author,
       };
     }));
 
@@ -71,7 +73,7 @@ export async function getPostData(slug: string) {
 
   return {
     slug,
-    ...(matterResult.data as { date: string; title: string; category: string; description: string; image?: string; tags?: string[] }),
+    ...(matterResult.data as { date: string; title: string; category: string; description: string; image?: string; tags?: string[]; author?: string; }),
     content: contentHtml,
   };
 } 

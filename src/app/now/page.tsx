@@ -57,8 +57,6 @@ export default function NowPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 } 

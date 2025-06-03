@@ -9,26 +9,38 @@ interface PostCardProps {
 }
 
 export default function PostCard({ post }: PostCardProps) {
+  // Formatear la fecha
+  const formattedDate = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
   return (
-    <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
-      <div className="p-4">
+    <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-200">
+      {post.image && (
+        <div className="w-full h-48 overflow-hidden">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      )}
+      <div className="p-6">
         <div className="flex-1 min-w-0">
-          <h3 className="text-base font-medium text-gray-900 mb-1 truncate">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">
             {post.title}
           </h3>
-          <div className="flex items-center text-xs text-gray-500 mb-2">
-            <span className="text-gray-600">{post.category}</span>
-            <span className="mx-1">•</span>
-            <span>{post.date}</span>
+          <div className="flex items-center text-xs text-gray-600 mb-4">
+            <span>{formattedDate}</span>
+            <span className="mx-2 text-gray-400">•</span>
+            <span>{post.category}</span>
           </div>
-          <p className="text-gray-600 text-xs mb-2 line-clamp-2">
+          <p className="text-gray-700 text-sm mb-4 line-clamp-3">
             {post.description}
           </p>
-          <div className="flex flex-wrap gap-1">
+          <div className="flex flex-wrap gap-2">
             {post.tags.map((tag, index) => (
               <span 
                 key={index}
-                className="bg-gray-100 text-gray-600 text-xs px-1.5 py-0.5 rounded"
+                className="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full"
               >
                 {tag}
               </span>

@@ -50,7 +50,6 @@ export default function SkillsPage() {
           </div>
         </div>
       </section>
-      <Footer />
     </main>
   );
 } 

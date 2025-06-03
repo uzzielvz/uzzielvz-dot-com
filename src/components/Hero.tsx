@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import LeetCodeIcon from '@/components/icons/LeetCodeIcon';
 
 // SVG Icons
 const GithubIcon = () => (
@@ -106,6 +107,9 @@ export default function Hero() {
             </Link>
             <Link href="https://linkedin.com/in/uzzielvz" target="_blank" aria-label="LinkedIn" className="text-gray-900 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-100">
               <LinkedinIcon />
+            </Link>
+            <Link href="https://leetcode.com/uzzielvz" target="_blank" aria-label="LeetCode" className="text-gray-900 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-100">
+              <LeetCodeIcon className="w-5 h-5 inline-block align-middle" />
             </Link>
           </div>
         </div>
