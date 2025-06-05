@@ -1,6 +1,8 @@
+# Ignora lo generado y lo que no escribiste tú
 public/** linguist-vendored
-*.html linguist-vendored
-*.css linguist-vendored
-*.js linguist-vendored
-*.json linguist-vendored
-*.md linguist-documentation
+dist/** linguist-generated
+build/** linguist-generated
+
+# Si usas tailwind o librerías pesadas, ignora sus CSS
+**/tailwind.css linguist-generated
+**/vendor/** linguist-vendored
