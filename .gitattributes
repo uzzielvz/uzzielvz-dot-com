@@ -1,0 +1,6 @@
+public/** linguist-vendored
+*.html linguist-vendored
+*.css linguist-vendored
+*.js linguist-vendored
+*.json linguist-vendored
+*.md linguist-documentation
