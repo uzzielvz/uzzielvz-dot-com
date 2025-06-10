@@ -36,32 +36,32 @@ export default function WorkCard({ project }: { project: Work }) {
             </span>
           ))}
         </div>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4 items-center">
           {project.githubUrl && (
             <Link
               href={project.githubUrl}
               target="_blank"
-              className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors"
+              className="text-sm text-gray-600 hover:text-gray-800 font-medium transition-colors lowercase"
             >
-              View Repository
+              view repo
             </Link>
           )}
           {project.webUrl && (
             <Link
               href={project.webUrl}
               target="_blank"
-              className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors"
+              className="text-sm text-gray-600 hover:text-gray-800 font-medium transition-colors lowercase"
             >
-              Visit Website
+              view website
             </Link>
           )}
           {project.demoRequestUrl && (
             <Link
               href={project.demoRequestUrl}
               target="_blank"
-              className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors"
+              className="text-sm text-gray-600 hover:text-gray-800 font-medium transition-colors lowercase"
             >
-              Request Demo
+              request a demo
             </Link>
           )}
         </div>

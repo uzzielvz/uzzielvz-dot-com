@@ -56,10 +56,9 @@ export default async function Home() {
               </div>
             ) : (
               featuredWorks.map((work) => (
-                <Link 
-                  href={`/works`} 
+                <div
                   key={work.slug}
-                  className="group block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col md:flex-row border border-gray-300 hover:border-gray-400"
+                  className="group bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col md:flex-row border border-gray-300 hover:border-gray-400"
                 >
                   {work.image && (
                     <div className="w-full md:w-1/3 h-48 md:h-auto overflow-hidden flex-shrink-0">
@@ -84,8 +83,37 @@ export default async function Home() {
                     <p className="text-gray-700 text-sm mb-4 line-clamp-3">
                       {work.description}
                     </p>
+                    <div className="flex flex-wrap gap-4 items-center">
+                      {work.githubUrl && (
+                        <Link
+                          href={work.githubUrl}
+                          target="_blank"
+                          className="text-sm text-gray-600 hover:text-gray-800 font-medium transition-colors lowercase"
+                        >
+                          view repo
+                        </Link>
+                      )}
+                      {work.webUrl && (
+                        <Link
+                          href={work.webUrl}
+                          target="_blank"
+                          className="text-sm text-gray-600 hover:text-gray-800 font-medium transition-colors lowercase"
+                        >
+                          view website
+                        </Link>
+                      )}
+                      {work.demoRequestUrl && (
+                        <Link
+                          href={work.demoRequestUrl}
+                          target="_blank"
+                          className="text-sm text-gray-600 hover:text-gray-800 font-medium transition-colors lowercase"
+                        >
+                          request a demo
+                        </Link>
+                      )}
+                    </div>
                   </div>
-                </Link>
+                </div>
               ))
             )}
           </div>
