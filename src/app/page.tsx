@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import { getSortedWorksData } from '@/lib/works';
 import { getRecentPosts } from "@/lib/posts";
 import PostCard from "@/components/PostCard";
+import Image from "next/image";
 
 export default async function Home() {
   const allWorks = await getSortedWorksData();
@@ -49,37 +50,44 @@ export default async function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-6">
-            {featuredWorks.map((work) => (
-              <Link 
-                href={`/works/${work.slug}`} 
-                key={work.slug}
-                className="group block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col md:flex-row border border-gray-300 hover:border-gray-400"
-              >
-                {work.image && (
-                  <div className="w-full md:w-1/3 h-48 md:h-auto overflow-hidden flex-shrink-0">
-                    <img
-                      src={work.image}
-                      alt={work.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+            {featuredWorks.length === 0 ? (
+              <div className="text-center text-gray-600 col-span-full">
+                <p>No featured works yet. Check back soon for updates.</p>
+              </div>
+            ) : (
+              featuredWorks.map((work) => (
+                <Link 
+                  href={`/works`} 
+                  key={work.slug}
+                  className="group block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col md:flex-row border border-gray-300 hover:border-gray-400"
+                >
+                  {work.image && (
+                    <div className="w-full md:w-1/3 h-48 md:h-auto overflow-hidden flex-shrink-0">
+                      <Image
+                        src={work.image}
+                        alt={work.title}
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        priority={false}
+                      />
+                    </div>
+                  )}
+                  <div className="p-5 flex-1 flex flex-col justify-center">
+                    <h2 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-700">
+                      {work.title}
+                    </h2>
+                    <div className="flex items-center space-x-3 mb-3">
+                      <span className="bg-gray-200 text-gray-800 text-xs font-medium px-2 py-0.5 rounded">{new Date(work.date).getFullYear()}</span>
+                      <span className="text-sm text-gray-700">{work.category}</span>
+                    </div>
+                    <p className="text-gray-700 text-sm mb-4 line-clamp-3">
+                      {work.description}
+                    </p>
                   </div>
-                )}
-                <div className="p-5 flex-1 flex flex-col justify-center">
-                  <h2 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gray-700">
-                    {work.title}
-                  </h2>
-                  <div className="flex items-center space-x-3 mb-3">
-                    <span className="bg-gray-200 text-gray-800 text-xs font-medium px-2 py-0.5 rounded">{new Date(work.date).getFullYear()}</span>
-                    <span className="text-sm text-gray-700">{work.category}</span>
-                  </div>
-                  <p className="text-gray-700 text-sm mb-4 line-clamp-3">
-                     {/* Asumiendo que el work.content tiene un resumen o puedes usar work.description si la tienes */}
-                     {work.content.substring(0, 150) + '...'}
-                   </p>
-                   {/* Tecnologías y Rol eliminados de la vista previa según la imagen de referencia */}
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))
+            )}
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import { getPostData } from '@/lib/posts';
 import Navbar from "@/components/Navbar";
 import { notFound } from 'next/navigation';
-
+import Image from 'next/image';
 
 export default async function PostDetail({ params }: { params: { slug: string } }) {
   const postData = await getPostData(params.slug);
@@ -34,12 +34,22 @@ export default async function PostDetail({ params }: { params: { slug: string } 
           {/* Image */}
           {postData.image && (
             <div className="mb-4">
-              <img src={postData.image} alt={postData.title} className="w-full rounded-lg" />
+              <Image
+                src={postData.image}
+                alt={postData.title}
+                width={1200} // Ajusta según el tamaño esperado
+                height={600} // Ajusta según el tamaño esperado
+                className="w-full rounded-lg object-cover"
+                priority={true} // Prioridad alta para LCP
+              />
             </div>
           )}
 
           {/* Content */}
-          <div className="prose max-w-none text-justify text-sm text-gray-700" dangerouslySetInnerHTML={{ __html: postData.content }} />
+          <div
+            className="prose prose-sm max-w-none text-justify text-gray-700 prose-p:mb-8 prose-ul:mb-8 prose-h3:mb-6"
+            dangerouslySetInnerHTML={{ __html: postData.content }}
+          />
         </article>
       </section>
     </main>

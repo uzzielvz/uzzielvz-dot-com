@@ -4,115 +4,56 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-// Define la interfaz para los datos del frontmatter del proyecto
 export interface Work {
   slug: string;
   title: string;
   date: string;
   category: string;
   technologies: string[];
-  featured: boolean;
-  image: string;
-  content: string;
-  role?: string;
-  features?: string[];
-  achievements?: string[];
-  requirements?: string[];
-  development_practices?: string;
-  testing?: string;
-  team?: string;
+  description: string;
+  image?: string;
   githubUrl?: string;
-  demo?: string;
-  images?: string[];
+  webUrl?: string;
+  demoRequestUrl?: string;
+  featured: boolean;
+  content: string;
 }
 
 const worksDirectory = path.join(process.cwd(), 'works');
 
-export function getSortedWorksData(): Work[] {
-  // Obtener nombres de archivos en el directorio works
-  const fileNames = fs.readdirSync(worksDirectory);
-  const allWorksData = fileNames.map((fileName) => {
-    // Remover ".md" del nombre del archivo para obtener el slug
-    const slug = fileName.replace(/\.md$/, '');
-
-    // Leer el archivo markdown como string
-    const fullPath = path.join(worksDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-    // Usar gray-matter para parsear el frontmatter del archivo markdown
-    const { data, content } = matter(fileContents);
-
-    // Combinar los datos con el slug
-    return {
-      slug,
-      content,
-      ...data,
-    } as Work;
-  });
-
-  // Ordenar works por fecha
-  return allWorksData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
-}
-
-export function getWorkBySlug(slug: string): Work | null {
+export async function getSortedWorksData(): Promise<Work[]> {
   try {
-    const fullPath = path.join(worksDirectory, `${slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
+    const fileNames = fs.readdirSync(worksDirectory).filter(file => file.endsWith('.md'));
+    const allWorksData = await Promise.all(fileNames.map(async (fileName) => {
+      const slug = fileName.replace(/\.md$/, '');
+      const fullPath = path.join(worksDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data, content } = matter(fileContents);
 
-    return {
-      slug,
-      content,
-      ...data,
-    } as Work;
+      const processedContent = await remark()
+        .use(html, { sanitize: false })
+        .process(content);
+      const contentHtml = processedContent.toString();
+
+      return {
+        slug,
+        title: data.title || '',
+        date: data.date || '',
+        category: data.category || 'Uncategorized',
+        technologies: data.technologies || [],
+        description: data.description || 'No description available.',
+        image: data.image,
+        githubUrl: data.githubUrl,
+        webUrl: data.webUrl,
+        demoRequestUrl: data.demoRequestUrl,
+        featured: data.featured || false,
+        content: contentHtml,
+      } as Work;
+    }));
+
+    return allWorksData.sort((a, b) => (a.date < b.date ? 1 : -1));
   } catch (error) {
-    return null;
+    console.error('Error reading works:', error);
+    return [];
   }
 }
-
-export async function getWorkData(slug: string): Promise<Work | null> {
-  try {
-    const fullPath = path.join(worksDirectory, `${slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const matterResult = matter(fileContents);
-
-    // Procesar el contenido markdown a HTML
-    const processedContent = await remark()
-      .use(html, { sanitize: false })
-      .process(matterResult.content);
-    const contentHtml = processedContent.toString();
-
-    // Asegurarse de que todos los campos requeridos estén presentes
-    const workData: Work = {
-      slug,
-      title: matterResult.data.title || '',
-      date: matterResult.data.date || '',
-      category: matterResult.data.category || '',
-      technologies: matterResult.data.technologies || [],
-      featured: matterResult.data.featured || false,
-      image: matterResult.data.image || '',
-      content: contentHtml,
-      role: matterResult.data.role,
-      features: matterResult.data.features,
-      achievements: matterResult.data.achievements,
-      requirements: matterResult.data.requirements,
-      development_practices: matterResult.data.development_practices,
-      testing: matterResult.data.testing,
-      team: matterResult.data.team,
-      githubUrl: matterResult.data.githubUrl,
-      demo: matterResult.data.demo,
-      images: matterResult.data.images
-    };
-
-    return workData;
-  } catch (error) {
-    console.error(`Error reading work ${slug}:`, error);
-    return null;
-  }
-} 
