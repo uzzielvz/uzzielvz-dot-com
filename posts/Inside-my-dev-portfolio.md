@@ -28,6 +28,6 @@ Building this portfolio consistently sharpened my ability to think through archi
 
 The biggest challenge was staying motivated through complex issues, like debugging cross-browser inconsistencies or optimizing mobile performance. Celebrating small wins and keeping the long-term goal in sight kept me on track.
 
-### Conclution
+### Conclusion
 
 I recommend diving into a portfolio project to any developer looking to improve their skills in web development. It's a commitment of time and effort, but the rewards in terms of professional growth and confidence are substantial. If you're curious about the code or want to discuss the process, feel free to reach out or check out the source code.

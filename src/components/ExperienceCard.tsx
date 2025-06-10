@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Experience } from "@/data/experience";
 
 interface ExperienceCardProps {
@@ -54,4 +53,4 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
       </div>
     </div>
   );
-} 
+}
