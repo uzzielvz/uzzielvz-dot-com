@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import 'prismjs/themes/prism-tomorrow.css';
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -14,25 +14,25 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Uziel Valdéz | Desarrollador Full Stack',
-    template: '%s | Uziel Valdéz'
+    default: 'Uzziel Valdéz | Full Stack Developer',
+    template: '%s | Uzziel Valdéz'
   },
-  description: 'Portafolio personal de Uziel Valdéz, desarrollador Full Stack especializado en React, Node.js y TypeScript.',
-  keywords: ['web development', 'software', 'programming', 'blog', 'portfolio', 'Uziel Valdéz'],
-  authors: [{ name: 'Uziel Valdéz' }],
-  creator: 'Uziel Valdéz',
+  description: 'Personal portfolio of Uzziel Valdéz, a Full Stack Developer and Software Engineer',
+  keywords: ['web development', 'software', 'programming', 'blog', 'portfolio', 'Uzziel Valdéz'],
+  authors: [{ name: 'Uzziel Valdéz' }],
+  creator: 'Uzziel Valdéz',
   openGraph: {
     type: 'website',
-    locale: 'es_MX',
+    locale: 'en_US',
     url: 'https://uzielvz.com',
-    title: 'Uziel Valdéz | Desarrollador Full Stack',
-    description: 'Portafolio personal de Uziel Valdéz, desarrollador Full Stack especializado en React, Node.js y TypeScript.',
-    siteName: 'Uziel Valdéz | Desarrollador Full Stack',
+    title: 'Uzziel Valdéz | Full Stack Developer',
+    description: 'Personal portfolio of Uzziel Valdéz, a Full Stack Developer specializing in React, Node.js, and TypeScript.',
+    siteName: 'Uzziel Valdéz | Full Stack Developer',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Uziel Valdéz | Desarrollador Full Stack',
-    description: 'Portafolio personal de Uziel Valdéz, desarrollador Full Stack especializado en React, Node.js y TypeScript.',
+    title: 'Uzziel Valdéz | Full Stack Developer',
+    description: 'Personal portfolio of Uzziel Valdéz, a Full Stack Developer specializing in React, Node.js, and TypeScript.',
     creator: '@uzielvz',
   },
   robots: {
@@ -57,7 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={inter.variable}>
+    <html lang="en" className={inter.variable}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta httpEquiv="x-dns-prefetch-control" content="on" />
@@ -69,9 +69,9 @@ export default function RootLayout({
       <body className="bg-white flex flex-col min-h-screen">
         <Navbar />
         <div className="flex-grow">
-        {children}
+          {children}
         </div>
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
