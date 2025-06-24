@@ -1,10 +1,12 @@
-import { useParams, Link } from "react-router-dom";
-import { works } from "../data/works";
-import { motion } from "framer-motion";
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+// Elimina: import { useParams, Link } from "react-router-dom";
 
 const WorkDetail = () => {
-  const { id } = useParams();
-  const work = works[Number(id)];
+  const router = useRouter();
+  const { id } = router.query; // Reemplaza useParams()
+  const work = id ? works[Number(id)] : null; // Esto fallará hasta Tarea 2
 
   if (!work) {
     return <div>Work not found</div>;
@@ -17,7 +19,7 @@ const WorkDetail = () => {
       exit={{ opacity: 0 }}
       className="container mx-auto px-4 py-8"
     >
-      <Link to="/works" className="text-gray-500 hover:text-gray-700 mb-4 inline-block">
+      <Link href="/works" className="text-gray-500 hover:text-gray-700 mb-4 inline-block">
         ← Back to Works
       </Link>
       
@@ -86,4 +88,4 @@ const WorkDetail = () => {
   );
 };
 
-export default WorkDetail; 
+export default WorkDetail;
