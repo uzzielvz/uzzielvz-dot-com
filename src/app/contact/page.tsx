@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Link from "next/link";
 
 // Define los íconos
@@ -37,7 +36,7 @@ export default function ContactPage() {
           <div className="w-full">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Contact</h1>
             <p className="text-gray-700 mb-8">
-              If you have any questions, project proposals, or would simply like to get in touch, feel free to contact me using the form below or through my social media channels. I'm always open to new ideas and meaningful connections.
+              If you have any questions, project proposals, or would simply like to get in touch, feel free to contact me using the form below or through my social media channels. I&apos;m always open to new ideas and meaningful connections.
             </p>
             <div className="flex space-x-4 mb-6">
               <Link href="https://github.com/tuusuario" target="_blank" aria-label="GitHub" className="text-gray-900 hover:text-gray-700 transition-colors">
@@ -61,7 +60,7 @@ export default function ContactPage() {
               <input type="hidden" name="form-name" value="contact" />
               <div hidden>
                 <label>
-                  Don't fill this out if you're human: 
+                  Don&apos;t fill this out if you&apos;re human: 
                   <input name="bot-field" />
                 </label>
               </div>

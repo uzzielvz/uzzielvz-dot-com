@@ -2,9 +2,6 @@
 
 import React from 'react';
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function NowPage() {
   return (
@@ -14,7 +11,7 @@ export default function NowPage() {
         <div className="max-w-6xl mx-auto px-4 flex flex-col flex-1">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-left">Now</h1>
           <p className="text-gray-700 text-lg mb-8 text-justify">
-            This is a now page, inspired by <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" className="text-gray-800 underline hover:text-gray-900">Derek Sivers</a>. It's a snapshot of what I'm currently focused on.
+            This is a now page, inspired by <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" className="text-gray-800 underline hover:text-gray-900">Derek Sivers</a>. It&apos;s a snapshot of what I&apos;m currently focused on.
           </p>
 
           <div className="space-y-8 text-gray-700 leading-relaxed text-justify">

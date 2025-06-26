@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import LeetCodeIcon from '@/components/icons/LeetCodeIcon';
 
@@ -34,7 +34,7 @@ const LinkedinIcon = () => (
 export { GithubIcon, TwitterIcon, LinkedinIcon };
 
 export default function Hero() {
-  const titles = ["Software Engineer", "Full Stack Developer"];
+  const titles = useMemo(() => ["Software Engineer", "Full Stack Developer"], []);
   const [titleIndex, setTitleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [phase, setPhase] = useState('typing'); // 'typing', 'pausing', 'deleting'
@@ -72,7 +72,7 @@ export default function Hero() {
       default:
         break;
     }
-  }, [displayedText, phase, titleIndex]);
+  }, [displayedText, phase, titleIndex, titles]);
 
   // Cursor blinking effect
   useEffect(() => {
@@ -89,7 +89,7 @@ export default function Hero() {
         {/* Left Column: Text Content */}
         <div className="flex flex-col w-full md:w-2/3">
           <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-2 leading-tight">
-            I'm Uzziel,
+            I&apos;m Uzziel,
           </h1>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-500 mb-4 inline-block">
             {displayedText}
@@ -140,13 +140,13 @@ export default function Hero() {
       href="/contact"
       className="inline-block text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-600 to-gray-800 animate-gradient-x"
     >
-      lets' collaborate
+      lets&apos; collaborate
     </Link>
     <Link 
       href="/now"
       className="inline-block text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-600 to-gray-800 animate-gradient-x"
     >
-      i'm now in...
+      i&apos;m now in...
     </Link>
   </div>
 </div>

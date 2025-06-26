@@ -8,6 +8,7 @@ export interface Work {
   slug: string;
   title: string;
   date: string;
+  year?: string;
   category: string;
   technologies: string[];
   description: string;
@@ -17,6 +18,8 @@ export interface Work {
   demoRequestUrl?: string;
   featured: boolean;
   content: string;
+  features?: string[];
+  requirements?: string[];
 }
 
 const worksDirectory = path.join(process.cwd(), 'works');
@@ -39,6 +42,7 @@ export async function getSortedWorksData(): Promise<Work[]> {
         slug,
         title: data.title || '',
         date: data.date || '',
+        year: data.year || data.date?.split('-')[0] || '',
         category: data.category || 'Uncategorized',
         technologies: data.technologies || [],
         description: data.description || 'No description available.',
@@ -48,6 +52,8 @@ export async function getSortedWorksData(): Promise<Work[]> {
         demoRequestUrl: data.demoRequestUrl,
         featured: data.featured || false,
         content: contentHtml,
+        features: data.features || [],
+        requirements: data.requirements || [],
       } as Work;
     }));
 

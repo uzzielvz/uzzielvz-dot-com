@@ -9,7 +9,7 @@ export default function SuccessPage() {
       <section className="flex-1 flex flex-col justify-center items-center max-w-2xl mx-auto px-4 py-8 mt-16 w-full text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">SEND</h1>
         <p className="text-gray-700 mb-8">
-        Thanks for reaching out. Message received. I'll get back to you soon.
+        Thanks for reaching out. Message received. I&apos;ll get back to you soon.
         </p>
         <Link 
           href="/" 

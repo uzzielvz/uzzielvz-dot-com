@@ -3,8 +3,9 @@ import Navbar from "@/components/Navbar";
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
-export default async function PostDetail({ params }: { params: { slug: string } }) {
-  const postData = await getPostData(params.slug);
+export default async function PostDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const postData = await getPostData(slug);
 
   if (!postData) {
     notFound();
