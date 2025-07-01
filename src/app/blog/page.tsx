@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Blog',
   description: 'Artículos sobre desarrollo de software, programación, y reflexiones personales.',
   openGraph: {
-    title: 'Blog | Uziel García',
+    title: 'Blog | Uzziel García',
     description: 'Artículos sobre desarrollo de software, programación, y reflexiones personales.',
   },
 };

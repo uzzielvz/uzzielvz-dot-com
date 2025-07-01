@@ -10,33 +10,54 @@ export default function PostCard({ post }: PostCardProps) {
   // Formatear la fecha
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
     year: 'numeric',
-    month: 'long',
+    month: 'short',
     day: 'numeric',
   });
 
   return (
-    <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-200">
+    <article className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 transition-all duration-300 hover:shadow-sm">
       <div className="p-6">
-        <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">{post.title}</h3>
-          <div className="flex items-center text-xs text-gray-600 mb-4">
-            <span>{formattedDate}</span>
-            <span className="mx-2 text-gray-400">•</span>
-            <span>{post.category}</span>
+        {/* Header del post */}
+        <header className="mb-4">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+              {post.category}
+            </span>
+            <span className="text-gray-300">•</span>
+            <time className="text-xs text-gray-500">
+              {formattedDate}
+            </time>
           </div>
-          <p className="text-gray-700 text-sm mb-4 line-clamp-3">{post.description}</p>
-          <div className="flex flex-wrap gap-2">
-            {post.tags.map((tag, index) => (
+          
+          <h3 className="text-lg font-medium text-gray-900 group-hover:text-gray-700 transition-colors duration-200 leading-tight">
+            {post.title}
+          </h3>
+        </header>
+
+        {/* Descripción */}
+        <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-3">
+          {post.description}
+        </p>
+
+        {/* Tags */}
+        {post.tags.length > 0 && (
+          <footer className="flex flex-wrap gap-1.5">
+            {post.tags.slice(0, 3).map((tag, index) => (
               <span
                 key={index}
-                className="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full"
+                className="inline-block bg-gray-50 text-gray-600 text-xs px-2 py-1 rounded-md border border-gray-100"
               >
                 {tag}
               </span>
             ))}
-          </div>
-        </div>
+            {post.tags.length > 3 && (
+              <span className="inline-block text-gray-400 text-xs px-2 py-1">
+                +{post.tags.length - 3} more
+              </span>
+            )}
+          </footer>
+        )}
       </div>
-    </div>
+    </article>
   );
 }
