@@ -52,18 +52,10 @@ export default function ContactPage() {
             <form 
               name="contact" 
               method="POST" 
-              data-netlify="true" 
-              netlify-honeypot="bot-field" 
+              data-vercel="true"
               action="/success" 
               className="space-y-6 p-6 bg-gray-50 rounded-lg shadow-md"
             >
-              <input type="hidden" name="form-name" value="contact" />
-              <div hidden>
-                <label>
-                  Don&apos;t fill this out if you&apos;re human: 
-                  <input name="bot-field" />
-                </label>
-              </div>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                   Name
@@ -73,7 +65,7 @@ export default function ContactPage() {
                   name="name" 
                   id="name" 
                   required 
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" 
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm text-gray-900 placeholder-gray-500 bg-white" 
                 />
               </div>
               <div>
@@ -85,7 +77,7 @@ export default function ContactPage() {
                   name="email" 
                   id="email" 
                   required 
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm" 
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm text-gray-900 placeholder-gray-500 bg-white" 
                 />
               </div>
               <div>
@@ -97,7 +89,7 @@ export default function ContactPage() {
                   id="message" 
                   rows={6} 
                   required 
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm"
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-900 focus:border-gray-900 sm:text-sm text-gray-900 placeholder-gray-500 bg-white resize-vertical"
                 ></textarea>
               </div>
               <div>
