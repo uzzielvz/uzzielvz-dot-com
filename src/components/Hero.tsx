@@ -96,7 +96,7 @@ export default function Hero() {
             <span className={`inline-block w-0.5 bg-gray-900 ml-1 align-bottom transform translate-y-[-1px] ${showCursor ? 'opacity-100' : 'opacity-0'}`}>&nbsp;</span>
           </h2>
           <p className="text-gray-500 text-lg md:text-xl mb-4 max-w-lg">
-            Based in Mexico - Transforming ideas into functional digital experiences.
+            MX- Transforming ideas into functional digital experiences.
           </p>
           <div className="flex space-x-3 mt-0">
             <Link href="https://github.com/uzzielvz" target="_blank" aria-label="GitHub" className="text-gray-900 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-100">
