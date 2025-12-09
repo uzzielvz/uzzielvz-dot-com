@@ -19,7 +19,7 @@ export const experiences: Experience[] = [
     location: "Metepec, Mexico",
     startDate: "September 2025",
     endDate: "Present",
-    type: "Full-Time",
+    type: "Part-Time",
     description: "Developed internal automation tools and data workflows using Python (FastAPI, Flask, Pandas), improving reporting speed and reducing manual processes. Designed and implemented data analysis and reporting modules using SQL to enhance data visibility for internal teams. Built and maintained web applications using JavaScript and TypeScript, contributing to features that improved operational efficiency.",
     image: "/credifkexi.png",
     technologies: ["Python", "FastAPI", "Flask", "Pandas", "SQL", "JavaScript", "TypeScript"]
@@ -30,7 +30,7 @@ export const experiences: Experience[] = [
     company: "Independent",
     location: "Remote",
     startDate: "2025",
-    endDate: "Present",
+    endDate: "September 2025",
     type: "Part-Time",
     description: "Design and development of tailored software solutions for web-based platforms. Responsibilities include building frontend applications, collaborating with clients to understand their needs, writing clean and maintainable code, and creating responsive user interfaces using modern tools and technologies.",
     image: "/freelance.jpg",

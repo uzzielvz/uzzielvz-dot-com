@@ -32,3 +32,4 @@ ZonaSegura CDMX is an interactive geospatial web application that visualizes cri
 
 June 2025 – October 2025
 
+
