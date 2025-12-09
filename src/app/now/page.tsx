@@ -18,37 +18,43 @@ export default function NowPage() {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">Currently Learning</h2>
               <ul className="list-disc list-inside space-y-2">
-                <li>Advanced TypeScript patterns and best practices</li>
-                <li>System design and architecture principles</li>
-                <li>React, Next.js</li>
+                <li>Django</li>
+                <li>Data Structures and Algorithms (DSA)</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">Current Projects</h2>
               <ul className="list-disc list-inside space-y-2">
-                <li>Building this personal website with Next.js and Tailwind</li>
-                <li>Working on a CRUD inventory application using php</li>
+                <li>Working on development of pipelines for financial data management at my job</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">Current Goals</h2>
               <ul className="list-disc list-inside space-y-2">
-                <li>Improving my system design skills</li>
-                <li>Writing more technical blog posts</li>
+                <li>Studying algorithms and DSA to reach FAANG companies</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-gray-800">Current Reading</h2>
-              <p>
-                <a href="https://www.amazon.com.mx/Nexus-Yuval-Noah-Harari/dp/9877950820" target="_blank" rel="noopener noreferrer" className="text-gray-800 underline hover:text-gray-900">Nexus - Yuval Noah Harari</a>
-              </p>
+              <ul className="list-none space-y-3">
+                <li>
+                  <a href="https://www.amazon.com.mx/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555" target="_blank" rel="noopener noreferrer" className="text-gray-800 underline hover:text-gray-900">
+                    Thinking, Fast and Slow - Daniel Kahneman
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.amazon.com.mx/s?k=notes+from+underground+dostoevsky" target="_blank" rel="noopener noreferrer" className="text-gray-800 underline hover:text-gray-900">
+                    Notes from Underground - Fyodor Dostoevsky
+                  </a>
+                </li>
+              </ul>
             </section>
 
             <p className="text-gray-600 text-sm mt-8">
-              Last updated: May 30, 2025
+              Last updated: December 8, 2025
             </p>
           </div>
         </div>
