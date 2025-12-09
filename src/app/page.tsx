@@ -4,12 +4,14 @@ import { experiences } from "@/data/experience";
 import ExperienceCard from "@/components/ExperienceCard";
 import Hero from "@/components/Hero";
 import { getSortedWorksData } from '@/lib/works';
-import { getRecentPosts } from "@/lib/posts";
+import { getRecentPosts, getAllPosts } from "@/lib/posts";
 
 export default async function Home() {
   const allWorks = await getSortedWorksData();
   const featuredWorks = allWorks.filter(work => work.featured);
   const posts = await getRecentPosts(2);
+  const allPosts = await getAllPosts();
+  const hasMorePosts = allPosts.length > posts.length;
 
   return (
     <main className="min-h-screen bg-white flex flex-col flex-grow">
@@ -168,7 +170,7 @@ export default async function Home() {
                         >
                           read full article →
                         </Link>
-                        {index === posts.length - 1 && (
+                        {index === posts.length - 1 && hasMorePosts && (
                           <div className="relative mt-12">
                             <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-transparent via-gray-50/80 to-gray-50 h-40 -mt-12 pointer-events-none"></div>
                             <div className="relative pt-16 flex justify-center">
