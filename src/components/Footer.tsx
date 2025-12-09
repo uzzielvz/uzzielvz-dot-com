@@ -17,9 +17,6 @@ export default function Footer() {
           <Link href="https://x.com/uzzielvz" target="_blank" aria-label="X" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
             X
           </Link>
-          <Link href="https://leetcode.com/uzzielvz" target="_blank" aria-label="LeetCode" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
-            leetcode
-          </Link>
           <Link href="https://www.goodreads.com/user/show/172204382-uzziel-valdez" target="_blank" aria-label="goodreads" className="text-gray-500 hover:text-gray-600 transition-colors text-sm">
             goodreads
           </Link>

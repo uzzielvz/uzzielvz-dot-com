@@ -37,7 +37,6 @@ export default function NowPage() {
               <ul className="list-disc list-inside space-y-2">
                 <li>Improving my system design skills</li>
                 <li>Writing more technical blog posts</li>
-                <li>Improving in Leetcode Challanges, Algortihms and dsta atructure</li>
               </ul>
             </section>
 

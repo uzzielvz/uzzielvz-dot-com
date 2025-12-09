@@ -1,12 +1,9 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import ExperienceCard from "@/components/ExperienceCard";
 import { experiences } from "@/data/experience";
 
 export default function ExperiencePage() {
   return (
     <main className="min-h-screen bg-white flex flex-col">
-      <Navbar />
       <section className="w-full py-8 mt-16 min-h-screen flex justify-start">
         <div className="max-w-6xl mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Experience</h1>
@@ -23,7 +20,6 @@ export default function ExperiencePage() {
           </div>
         </div>
       </section>
-      <Footer />
     </main>
   );
 } 

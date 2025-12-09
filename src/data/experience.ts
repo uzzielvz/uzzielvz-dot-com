@@ -15,13 +15,13 @@ export const experiences: Experience[] = [
   {
     id: 1,
     title: "Software and Data Engineer Intern",
-    company: "CrediFlexiMetepec",
-    location: "México",
+    company: "CrediFlexi",
+    location: "Metepec, Mexico",
     startDate: "September 2025",
     endDate: "Present",
     type: "Full-Time",
     description: "Developed internal automation tools and data workflows using Python (FastAPI, Flask, Pandas), improving reporting speed and reducing manual processes. Designed and implemented data analysis and reporting modules using SQL to enhance data visibility for internal teams. Built and maintained web applications using JavaScript and TypeScript, contributing to features that improved operational efficiency.",
-    image: "/freelance.jpg",
+    image: "/credifkexi.png",
     technologies: ["Python", "FastAPI", "Flask", "Pandas", "SQL", "JavaScript", "TypeScript"]
   },
   {

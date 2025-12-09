@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
-import LeetCodeIcon from '@/components/icons/LeetCodeIcon';
 
 // SVG Icons
 const GithubIcon = () => (
@@ -96,7 +95,7 @@ export default function Hero() {
             <span className={`inline-block w-0.5 bg-gray-900 ml-1 align-bottom transform translate-y-[-1px] ${showCursor ? 'opacity-100' : 'opacity-0'}`}>&nbsp;</span>
           </h2>
           <p className="text-gray-500 text-lg md:text-xl mb-4 max-w-lg">
-            MX- Transforming ideas into functional digital experiences.
+            Passionate about building impactful digital solutions.
           </p>
           <div className="flex space-x-3 mt-0">
             <Link href="https://github.com/uzzielvz" target="_blank" aria-label="GitHub" className="text-gray-900 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-100">
@@ -107,9 +106,6 @@ export default function Hero() {
             </Link>
             <Link href="https://linkedin.com/in/uzzielvz" target="_blank" aria-label="LinkedIn" className="text-gray-900 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-100">
               <LinkedinIcon />
-            </Link>
-            <Link href="https://leetcode.com/uzzielvz" target="_blank" aria-label="LeetCode" className="text-gray-900 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-100">
-              <LeetCodeIcon className="w-5 h-5 inline-block align-middle" />
             </Link>
           </div>
         </div>

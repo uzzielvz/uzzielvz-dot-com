@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Experience } from "@/data/experience";
 
 interface ExperienceCardProps {
@@ -12,14 +11,6 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
     <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
       <div className="p-6">
         <div className="flex items-center gap-4">
-          <div className="flex-shrink-0 w-16 h-16 relative">
-            <Image
-              src={experience.image}
-              alt={experience.company}
-              fill
-              className="rounded-lg object-cover"
-            />
-          </div>
           <div className="flex-1">
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
               {experience.title}

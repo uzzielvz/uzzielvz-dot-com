@@ -36,7 +36,7 @@ export default function ContactPage() {
           <div className="w-full">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Contact</h1>
             <p className="text-gray-700 mb-8">
-              If you have any questions, project proposals, or would simply like to get in touch, feel free to contact me using the form below or through my social media channels. I&apos;m always open to new ideas and meaningful connections.
+              Got a project in mind or just want to chat? Drop me a message below or reach out through my socials. I&apos;m always interested in hearing about new opportunities and interesting projects.
             </p>
             <div className="flex space-x-4 mb-6">
               <Link href="https://github.com/tuusuario" target="_blank" aria-label="GitHub" className="text-gray-900 hover:text-gray-700 transition-colors">
