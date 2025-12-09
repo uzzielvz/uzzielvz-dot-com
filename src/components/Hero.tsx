@@ -34,7 +34,7 @@ const LinkedinIcon = () => (
 export { GithubIcon, TwitterIcon, LinkedinIcon };
 
 export default function Hero() {
-  const titles = useMemo(() => ["Software Engineer", "Full Stack Developer"], []);
+  const titles = useMemo(() => ["Software Engineer", "& Data Intern"], []);
   const [titleIndex, setTitleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [phase, setPhase] = useState('typing'); // 'typing', 'pausing', 'deleting'
@@ -129,12 +129,6 @@ export default function Hero() {
       className="inline-block text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-600 to-gray-800 animate-gradient-x"
     >
       view my work
-    </Link>
-    <Link 
-      href="/skills"
-      className="inline-block text-gray-700 hover:text-gray-900 transition-colors duration-200 font-medium text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-600 to-gray-800 animate-gradient-x"
-    >
-      view my skills
     </Link>
     <Link 
       href="/contact"

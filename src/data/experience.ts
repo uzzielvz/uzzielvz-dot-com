@@ -14,14 +14,26 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: 1,
-    title: "Freelance Full-Stack Developer",
+    title: "Software and Data Engineer Intern",
+    company: "CrediFlexiMetepec",
+    location: "México",
+    startDate: "September 2025",
+    endDate: "Present",
+    type: "Full-Time",
+    description: "Developed internal automation tools and data workflows using Python (FastAPI, Flask, Pandas), improving reporting speed and reducing manual processes. Designed and implemented data analysis and reporting modules using SQL to enhance data visibility for internal teams. Built and maintained web applications using JavaScript and TypeScript, contributing to features that improved operational efficiency.",
+    image: "/freelance.jpg",
+    technologies: ["Python", "FastAPI", "Flask", "Pandas", "SQL", "JavaScript", "TypeScript"]
+  },
+  {
+    id: 2,
+    title: "Freelance Frontend Developer",
     company: "Independent",
     location: "Remote",
     startDate: "2025",
     endDate: "Present",
     type: "Part-Time",
-    description: "Design and development of tailored software solutions for web-based platforms. Responsibilities include building full-stack applications, collaborating with clients to understand their needs, writing clean and maintainable code, and deploying scalable systems using modern tools and technologies.",
+    description: "Design and development of tailored software solutions for web-based platforms. Responsibilities include building frontend applications, collaborating with clients to understand their needs, writing clean and maintainable code, and creating responsive user interfaces using modern tools and technologies.",
     image: "/freelance.jpg",
-    technologies: ["React", "TypeScript", "Node.js", "MongoDB"]
+    technologies: ["JavaScript", "React", "TypeScript", "HTML", "CSS"]
   }
 ]; 
